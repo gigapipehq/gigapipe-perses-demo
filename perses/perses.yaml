@@ -1,0 +1,43 @@
+database:
+  file:
+    extension: "json"
+    folder: "/perses"
+    case_sensitive: false
+security:
+  enable_auth: false
+  cookie:
+    secure: true
+  authorization:
+    guest_permissions:
+      - actions:
+          - read
+        scopes:
+          - "*"
+      - actions:
+          - create
+        scopes:
+          - Project
+
+ephemeral_dashboard:
+  enable: true
+  cleanup_interval: "1h"
+
+provisioning:
+  interval: "12h"
+  folders:
+    - "/etc/perses/provisioning"
+
+frontend:
+  explorer:
+    enable: true
+
+  important_dashboards:
+    - project: "perses"
+      dashboard: "NodeExporterFull"
+
+  information: |-
+    # Welcome to the Demo instance of Perses!
+
+    This public demo instance is here to show you what Perses looks like
+    and what's possible to do with it. You can have a look at the example
+    dashboards, or create your own ones!

@@ -1,0 +1,22 @@
+{
+  "kind": "GlobalDatasource",
+  "metadata": {
+    "name": "TempoLocal",
+    "createdAt": "0001-01-01T00:00:00Z",
+    "updatedAt": "2025-06-21T16:22:57.1323033Z",
+    "version": 2
+  },
+  "spec": {
+    "display": {
+      "description": "Local gigapipe temp instance for testing"
+    },
+    "default": false,
+    "plugin": {
+      "kind": "TempoDatasource",
+      "spec": {
+        "directUrl": "http://gigapipe:3100",
+        "scrapeInterval": ""
+      }
+    }
+  }
+}
