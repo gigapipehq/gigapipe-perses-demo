@@ -1,21 +1,51 @@
 {
   "kind": "GlobalDatasource",
   "metadata": {
-    "name": "TempoLocal",
-    "createdAt": "0001-01-01T00:00:00Z",
-    "updatedAt": "2025-06-21T16:22:57.1323033Z",
+    "name": "tempolocal",
+    "createdAt": "2025-06-13T18:05:28.334651015Z",
+    "updatedAt": "2025-06-13T18:10:24.480391221Z",
     "version": 2
   },
   "spec": {
     "display": {
       "description": "Local gigapipe temp instance for testing"
     },
-    "default": false,
+    "default": true,
     "plugin": {
       "kind": "TempoDatasource",
       "spec": {
-        "directUrl": "http://gigapipe:3100",
-        "scrapeInterval": ""
+        "proxy": {
+          "kind": "HTTPProxy",
+          "spec": {
+            "allowedEndpoints": [
+              {
+                "endpointPattern": "/api/search",
+                "method": "GET"
+              },
+              {
+                "endpointPattern": "/api/traces",
+                "method": "GET"
+              },
+              {
+                "endpointPattern": "/api/search/tags",
+                "method": "GET"
+              },
+              {
+                "endpointPattern": "/api/search/tag",
+                "method": "GET"
+              },
+               {
+                "endpointPattern": "/api/v2/search/tags",
+                "method": "GET"
+              },
+              {
+                "endpointPattern": "/api/v2/search/tag",
+                "method": "GET"
+              }
+            ],
+            "url": "http://gigapipe:3100"
+          }
+        }
       }
     }
   }
