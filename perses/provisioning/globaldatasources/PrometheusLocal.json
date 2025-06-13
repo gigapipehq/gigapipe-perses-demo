@@ -1,10 +1,10 @@
 {
   "kind": "GlobalDatasource",
   "metadata": {
-    "name": "PrometheusLocal",
-    "createdAt": "0001-01-01T00:00:00Z",
-    "updatedAt": "2023-09-21T16:22:57.1323033Z",
-    "version": 2
+    "name": "prometheuslocal",
+    "createdAt": "2025-06-13T18:05:28.334173141Z",
+    "updatedAt": "2025-06-13T18:10:32.530411791Z",
+    "version": 3
   },
   "spec": {
     "display": {
@@ -14,8 +14,43 @@
     "plugin": {
       "kind": "PrometheusDatasource",
       "spec": {
-        "directUrl": "http://gigapipe:3100",
-        "scrapeInterval": ""
+        "proxy": {
+          "kind": "HTTPProxy",
+          "spec": {
+            "allowedEndpoints": [
+              {
+                "endpointPattern": "/api/v1/labels",
+                "method": "POST"
+              },
+              {
+                "endpointPattern": "/api/v1/series",
+                "method": "POST"
+              },
+              {
+                "endpointPattern": "/api/v1/metadata",
+                "method": "GET"
+              },
+              {
+                "endpointPattern": "/api/v1/query",
+                "method": "POST"
+              },
+              {
+                "endpointPattern": "/api/v1/query_range",
+                "method": "POST"
+              },
+              {
+                "endpointPattern": "/api/v1/label/([a-zA-Z0-9_-]+)/values",
+                "method": "GET"
+              },
+              {
+                "endpointPattern": "/api/v1/parse_query",
+                "method": "POST"
+              }
+            ],
+            "url": "http://gigapipe:3100"
+          }
+        },
+        "scrapeInterval": "1m"
       }
     }
   }
