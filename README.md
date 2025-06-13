@@ -8,7 +8,7 @@
 
 :rocket: Gigapipe is a _lighweight, multi-standard, polyglot **observability** stack for **Logs, Metrics**, **Traces** and **Profiling**_<br/>
 
-:rocket: Perses is an open specification for dashboards and Grafana alternative for Prometheus, Tempo and beyond. CNCF Sandbox <br/>
+:rocket: Perses is an open specification for dashboards. A Grafana alternative for Prometheus, Tempo and _beyond_<br/>
 
 <img src="https://perses.dev/assets/images/perses_overview.gif" />
 
