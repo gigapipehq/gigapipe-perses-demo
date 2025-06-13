@@ -1,3 +1,6 @@
+volumes:
+    perses_data: {}
+    
 services:
   perses:
     image: "docker.io/persesdev/perses:latest"
@@ -8,7 +11,7 @@ services:
       - ./perses/perses.yaml:/etc/perses/config/config.yaml
       - ./perses/provisioning:/etc/perses/provisioning
       - ./perses/secret:/etc/perses/config
-      - ./perses_data:/perses
+      - perses_data:/perses
     restart: unless-stopped
     logging:
       driver: "local"
